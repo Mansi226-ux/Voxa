@@ -1,12 +1,8 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import api from "../services/api.js";
  
- 
-
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [stats, setStats] = useState({});
@@ -86,8 +82,6 @@ const AdminDashboard = () => {
       }
     }
   };
-
-  
 
   const handleDeletePost = async (postId) => {
     if (window.confirm("Are you sure you want to delete this post?")) {
