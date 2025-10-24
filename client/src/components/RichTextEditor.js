@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-//import uploadService from "../services/uploadService.js";
 
 const RichTextEditor = ({
   value,
@@ -11,45 +10,6 @@ const RichTextEditor = ({
   placeholder = "Write your content here...",
 }) => {
   const quillRef = useRef(null);
-
-  // Custom image handler for the editor
-  // const imageHandler = () => {
-  //   const input = document.createElement("input");
-  //   input.setAttribute("type", "file");
-  //   input.setAttribute("accept", "image/*");
-  //   input.click();
-
-  //   input.onchange = async () => {
-  //     const file = input.files[0];
-  //     if (file) {
-  //       try {
-  //         // Validate file
-  //         uploadService.validateImageFile(file);
-
-  //         // Show loading state
-  //         const quill = quillRef.current.getEditor();
-  //         const range = quill.getSelection(true);
-  //         quill.insertText(range.index, "Uploading image...", "user");
-
-  //         // Upload image
-  //         const result = await uploadService.uploadPostImage(file);
-
-  //         // Remove loading text and insert image
-  //         quill.deleteText(range.index, "Uploading image...".length);
-  //         quill.insertEmbed(range.index, "image", result.imageUrl);
-  //         quill.setSelection(range.index + 1);
-  //       } catch (error) {
-  //         alert(error.message);
-  //         // Remove loading text if upload failed
-  //         const quill = quillRef.current.getEditor();
-  //         const range = quill.getSelection();
-  //         if (range) {
-  //           quill.deleteText(range.index, "Uploading image...".length);
-  //         }
-  //       }
-  //     }
-  //   };
-  // };
 
   const modules = {
     toolbar: {
@@ -66,9 +26,6 @@ const RichTextEditor = ({
         ["blockquote", "code-block"],
         ["clean"],
       ],
-      // handlers: {
-      //   image: imageHandler,
-      // },
     },
     clipboard: {
       matchVisual: false,
@@ -106,7 +63,7 @@ const RichTextEditor = ({
         modules={modules}
         formats={formats}
         placeholder={placeholder}
-        className="h-64"
+        className="h-64 border border-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-950 focus:border-slate-300 bg-slate-100"
       />
     </div>
   );

@@ -4,14 +4,14 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, getCurrentUser } from "../store/slices/authSlice.js";
-import  {useAnimations }  from "../hooks/useAnimations.js";
+import { useAnimations } from "../hooks/useAnimations.js";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, isAuthenticated, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-   const {slideLeft } = useAnimations()
+  const { slideLeft } = useAnimations();
 
   useEffect(() => {
     if (token && !user) {
@@ -25,22 +25,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className=" shadow-lg  top-0 z-50   " style={slideLeft}>
-      
+    <nav className=" shadow-lg  top-0 z-50 bg-purple-800  " style={slideLeft}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="flex justify-between h-30 ">
           <div className="flex items-center">
-             
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <h1 className=" text-8xl font-black text-blue-800 tracking-widest drop-shadow-[6px_5px_0px_rgba(0,0,0,0.4)]">
+              <h1
+                className="flex font-black text-blue-100 tracking-widest drop-shadow-[8px_10px_0px_rgba(0,0,0,0.4)]
+                 text-4xl sm:text-5xl md:text-6xl lg:text-8xl"
+              >
+                {" "}
                 VOXA
               </h1>
-              
-               
             </Link>
           </div>
-
-           
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
@@ -48,20 +46,20 @@ const Navbar = () => {
               <>
                 <Link
                   to="/dashboard"
-                  className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-white hover:border-b  border-black px-3 py-2 rounded-md text-lg font-medium"
                 >
                   Dashboard
                 </Link>
                 <Link
                   to="/create-post"
-                  className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-white hover:border-b  border-black px-3 py-2 rounded-md text-lg font-medium"
                 >
                   Create Post
                 </Link>
                 {user?.role === "Admin" && (
                   <Link
                     to="/admin"
-                    className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-white hover:border-b  border-black px-3 py-2 rounded-md text-lg font-medium"
                   >
                     Admin
                   </Link>
@@ -69,7 +67,7 @@ const Navbar = () => {
                 <div className="relative">
                   <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className="flex items-center space-x-2 text-gray-700 hover:text-indigo-600"
+                    className="flex items-center space-x-2 text-white hover:border-b  border-black  "
                   >
                     <img
                       src={
@@ -79,7 +77,7 @@ const Navbar = () => {
                       alt="Profile"
                       className="w-8 h-8 rounded-full"
                     />
-                    <span className="text-sm font-medium">{user?.name}</span>
+                    <span className="text-lg font-medium ">{user?.name}</span>
                   </button>
 
                   {isMenuOpen && (
@@ -105,13 +103,13 @@ const Navbar = () => {
               <>
                 <Link
                   to="/login"
-                  className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-white hover:text-black px-3 py-2 rounded-md text-lg font-medium"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="bg-purple-800 border border-purpule-300 text-white px-4 py-1 rounded-full opacity-80 text-lg font-semibold hover:bg-purple-500 hover:text-black transition duration-300 shadow-lg hover:shadow-xl"
+                  className="text-white px-4 py-1 rounded-full  text-lg font-semibold hover:bg-purple-500 hover:text-black transition duration-300 shadow-lg hover:shadow-xl"
                 >
                   Sign Up
                 </Link>
@@ -123,7 +121,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-indigo-600 focus:outline-none focus:text-indigo-600"
+              className="text-white hover:text-black focus:outline-none focus:text-black"
             >
               <svg
                 className="h-6 w-6"
@@ -150,21 +148,21 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/dashboard"
-                    className="block text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
+                    className="block text-white hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Dashboard
                   </Link>
                   <Link
                     to="/create-post"
-                    className="block text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
+                    className="block text-white hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Create Post
                   </Link>
                   <Link
                     to={`/profile/${user?.id}`}
-                    className="block text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
+                    className="block text-white hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     My Profile
@@ -172,7 +170,7 @@ const Navbar = () => {
                   {user?.role === "Admin" && (
                     <Link
                       to="/admin"
-                      className="block text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
+                      className="block text-white hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Admin
@@ -180,7 +178,7 @@ const Navbar = () => {
                   )}
                   <button
                     onClick={handleLogout}
-                    className="block w-full text-left text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
+                    className="block w-full text-left text-white hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
                   >
                     Logout
                   </button>
@@ -189,7 +187,7 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/login"
-                    className="block text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
+                    className="block text-white hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Login

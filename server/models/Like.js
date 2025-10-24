@@ -1,4 +1,4 @@
- const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const likeSchema = new mongoose.Schema(
   {
@@ -15,10 +15,9 @@ const likeSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
-)
+  }
+);
 
-// Ensure one like per user per post
-likeSchema.index({ postId: 1, userId: 1 }, { unique: true })
+likeSchema.index({ postId: 1, userId: 1 }, { unique: true });
 
-module.exports = mongoose.model("Like", likeSchema)
+module.exports = mongoose.model("Like", likeSchema);

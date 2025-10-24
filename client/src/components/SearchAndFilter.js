@@ -1,8 +1,11 @@
+
 import { useState } from "react"
 
+ 
+
 const SearchAndFilter = ({ onFilterChange }) => {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("all")
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
     "all",
@@ -11,32 +14,39 @@ const SearchAndFilter = ({ onFilterChange }) => {
     "Travel",
     "Food",
     "Health",
+    "Nature",
+    "Adventure",
+    "Games",
     "Business",
     "Education",
     "Entertainment",
     "Sports",
-  ]
+  ];
 
   const handleSearchChange = (e) => {
-    const value = e.target.value
-    setSearchTerm(value)
-    onFilterChange({ search: value })
-  }
+    const value = e.target.value;
+    setSearchTerm(value);
+    onFilterChange({ search: value });
+  };
 
   const handleCategoryChange = (e) => {
-    const value = e.target.value
-    setSelectedCategory(value)
-    onFilterChange({ category: value })
-  }
+    const value = e.target.value;
+    setSelectedCategory(value);
+    onFilterChange({ category: value });
+  };
 
   return (
-    <div className="  p-6 rounded-lg shadow-md">
+    <div className="  p-6 rounded-lg shadow-md bg-slate-500">
       <div className="flex flex-col md:flex-row gap-4">
-        {/* Search Input */}
         <div className="flex-1">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="h-5 w-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -50,17 +60,16 @@ const SearchAndFilter = ({ onFilterChange }) => {
               placeholder="Search posts, authors, or tags..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-slate-100 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-slate-500 focus:border-slate-900"
             />
           </div>
         </div>
 
-        {/* Category Filter */}
         <div className="md:w-48">
           <select
             value={selectedCategory}
             onChange={handleCategoryChange}
-            className="block w-full px-3 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md bg-slate-100 focus:outline-none focus:ring-1 focus:ring-slate-500 focus:border-slate-900"
           >
             {categories.map((category) => (
               <option key={category} value={category}>
@@ -71,7 +80,6 @@ const SearchAndFilter = ({ onFilterChange }) => {
         </div>
       </div>
 
-      {/* Active Filters */}
       {(searchTerm || selectedCategory !== "all") && (
         <div className="mt-4 flex flex-wrap gap-2">
           <span className="text-sm text-gray-600">Active filters:</span>
@@ -80,8 +88,8 @@ const SearchAndFilter = ({ onFilterChange }) => {
               Search: "{searchTerm}"
               <button
                 onClick={() => {
-                  setSearchTerm("")
-                  onFilterChange({ search: "" })
+                  setSearchTerm("");
+                  onFilterChange({ search: "" });
                 }}
                 className="ml-1 text-indigo-600 hover:text-indigo-800"
               >
@@ -94,8 +102,8 @@ const SearchAndFilter = ({ onFilterChange }) => {
               Category: {selectedCategory}
               <button
                 onClick={() => {
-                  setSelectedCategory("all")
-                  onFilterChange({ category: "all" })
+                  setSelectedCategory("all");
+                  onFilterChange({ category: "all" });
                 }}
                 className="ml-1 text-green-600 hover:text-green-800"
               >
@@ -106,7 +114,7 @@ const SearchAndFilter = ({ onFilterChange }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SearchAndFilter
+export default SearchAndFilter;

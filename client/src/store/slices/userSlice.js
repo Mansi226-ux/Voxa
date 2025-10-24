@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../services/api.js";
 
-// Async thunks
 export const fetchUserProfile = createAsyncThunk(
   "users/fetchUserProfile",
   async (userId, { rejectWithValue }) => {
@@ -75,7 +74,7 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Fetch User Profile
+
       .addCase(fetchUserProfile.pending, (state) => {
         state.loading = true;
         state.error = null;

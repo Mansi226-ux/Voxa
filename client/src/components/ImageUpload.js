@@ -15,7 +15,6 @@ const ImageUpload = ({
 
   const handleFileSelect = async (file) => {
     try {
-      // Validate file
       uploadService.validateImageFile(file);
 
       setUploading(true);
@@ -72,7 +71,7 @@ const ImageUpload = ({
         onImageUpload("", "");
       } catch (error) {
         console.error("Error removing image:", error);
-        // Still remove from UI even if deletion fails
+
         onImageUpload("", "");
       }
     }
@@ -115,14 +114,14 @@ const ImageUpload = ({
         </div>
       ) : (
         <div
-          className={`border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition duration-300 ${
+          className={`border-3 border-dashed rounded-lg p-6 text-center cursor-pointer transition duration-300 ${
             isProfileType
               ? "h-32 w-32 rounded-full flex flex-col items-center justify-center p-2"
               : ""
           } ${
             dragOver
               ? "border-indigo-500 bg-indigo-50"
-              : "border-gray-300 hover:border-gray-400 hover:bg-gray-50"
+              : "border-gray-300 hover:border-gray-400 bg-slate-100"
           } ${uploading ? "opacity-50 cursor-not-allowed" : ""}`}
           onDrop={handleDrop}
           onDragOver={handleDragOver}

@@ -52,7 +52,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className="App min-h-screen bg-gradient-to-br from-purple-200 via-white to-indigo-200">
+        <div className="App min-h-screen bg-slate-50">
           <Navbar />
           <Routes>
             {/* Public Routes */}
@@ -126,7 +126,7 @@ function App() {
               }
             />
 
-             <Route
+            <Route
               path="/admin/user/:userId"
               element={
                 <ProtectedRoute adminOnly={true}>
@@ -138,7 +138,7 @@ function App() {
             {/* 404 Route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </Provider>

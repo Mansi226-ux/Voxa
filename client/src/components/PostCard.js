@@ -47,9 +47,8 @@ const PostCard = ({ post, onLike, currentUserId }) => {
   };
 
   return (
-    <div className=" rounded-lg   hover:shadow-lg transition duration-300 overflow-hidden">
+    <div className=" rounded-lg  bg-slate-100  hover:shadow-lg transition duration-300 overflow-hidden">
       <div className="p-6">
-        {/* Author Info */}
         <div className="flex items-center mb-4">
           <img
             src={
@@ -72,7 +71,6 @@ const PostCard = ({ post, onLike, currentUserId }) => {
           </div>
         </div>
 
-        {/* Featured Image */}
         {post.featuredImage && (
           <div className="h-48 overflow-hidden">
             <img
@@ -83,7 +81,6 @@ const PostCard = ({ post, onLike, currentUserId }) => {
           </div>
         )}
 
-        {/* Post Content */}
         <Link to={`/post/${post._id}`} className="block mb-4">
           <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-indigo-600 transition duration-300">
             {post.title}
@@ -93,7 +90,6 @@ const PostCard = ({ post, onLike, currentUserId }) => {
           </p>
         </Link>
 
-        {/* Tags */}
         {post.tags && post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
             {post.tags.slice(0, 3).map((tag, index) => (
@@ -112,7 +108,6 @@ const PostCard = ({ post, onLike, currentUserId }) => {
           </div>
         )}
 
-        {/* Post Stats */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <div className="flex items-center space-x-4">
             <button

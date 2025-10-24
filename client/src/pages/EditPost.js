@@ -107,16 +107,20 @@ const EditPost = () => {
 
   if (!currentPost) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-slate-50 py-8">
+      <div className="hidden lg:block absolute fixed top-40 left-10 w-20 h-20 bg-indigo-200 rounded-full opacity-50 animate-pulse"></div>
+      <div className="hidden lg:block absolute fixed top-65 right-25 w-16 h-16 bg-purple-200 rounded-full opacity-50 animate-pulse delay-1000"></div>
+      <div className="hidden lg:block absolute fixed bottom-65 left-60 w-12 h-12 bg-pink-200 rounded-full opacity-50 animate-pulse delay-2000"></div>
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-slate-200 rounded-lg shadow-md p-6">
           <div className="mb-6">
             <h1 className="text-3xl font-bold text-gray-900">Edit Post</h1>
             <p className="text-gray-600 mt-2">Update your post content</p>
@@ -138,7 +142,7 @@ const EditPost = () => {
                 required
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-3 py-2 border border-slate-400 rounded-md focus:outline-none bg-slate-100 focus:ring-2 focus:ring-slate-950 focus:border-slate-300"
                 placeholder="Enter your post title..."
               />
             </div>
@@ -165,7 +169,7 @@ const EditPost = () => {
               <div>
                 <label
                   htmlFor="category"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-slate-700 mb-2"
                 >
                   Category
                 </label>
@@ -174,8 +178,9 @@ const EditPost = () => {
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                >
+                  className="w-full px-3 py-2 border border-slate-400 rounded-md focus:outline-none bg-slate-100 focus:ring-2 focus:ring-slate-950 focus:border-slate-300"
+                  
+                  >
                   {categories.map((category) => (
                     <option key={category} value={category}>
                       {category}
@@ -187,7 +192,7 @@ const EditPost = () => {
               <div>
                 <label
                   htmlFor="tags"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-slate-700 mb-2"
                 >
                   Tags (comma separated)
                 </label>
@@ -197,7 +202,7 @@ const EditPost = () => {
                   name="tags"
                   value={formData.tags}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border border-slate-400 rounded-md focus:outline-none bg-slate-100 focus:ring-2 focus:ring-slate-950 focus:border-slate-300"
                   placeholder="react, javascript, web development"
                 />
               </div>
@@ -220,7 +225,7 @@ const EditPost = () => {
               <button
                 type="button"
                 onClick={() => navigate(`/post/${postId}`)}
-                className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition duration-300"
+                className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-slate-100 transition duration-300"
               >
                 Cancel
               </button>

@@ -1,5 +1,4 @@
-"use Admin"
-
+ 
 import { useState, useEffect } from "react"
 import { useParams, Link, useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
@@ -35,24 +34,21 @@ const AdminUserDetails = () => {
   const fetchUserDetails = async () => {
     setLoading(true)
     try {
-      // Fetch user profile
+      
       const userResponse = await api.get(`/users/${userId}`)
       setUser(userResponse.data)
-
-      // Fetch user posts
+ 
       const postsResponse = await api.get(`/posts/user/${userId}`)
       setUserPosts(postsResponse.data)
-
-      // Fetch user likes
+ 
       const likesResponse = await api.get(`/admin/user-likes/${userId}`)
       setUserLikes(likesResponse.data || [])
 
-      // Fetch followers and following
+     
       const followersResponse = await api.get(`/admin/user-followers/${userId}`)
       setFollowers(followersResponse.data.followers || [])
       setFollowing(followersResponse.data.following || [])
-
-      // Calculate stats
+ 
       const userStats = {
         totalPosts: postsResponse.data.length,
         totalLikes: likesResponse.data?.length || 0,
@@ -139,7 +135,7 @@ const AdminUserDetails = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
       </div>
     )
@@ -147,7 +143,7 @@ const AdminUserDetails = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-100 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">User not found</h2>
           <Link to="/admin" className="text-indigo-600 hover:text-indigo-800">
@@ -277,7 +273,7 @@ const AdminUserDetails = () => {
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Posts</h3>
                     <div className="space-y-3">
                       {userPosts.slice(0, 5).map((post) => (
-                        <div key={post._id} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                        <div key={post._id} className="flex items-start space-x-3 p-3 bg-slate-100 rounded-lg">
                           {post.featuredImage && (
                             <img
                               src={post.featuredImage || "/placeholder.svg"}
@@ -309,7 +305,7 @@ const AdminUserDetails = () => {
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Comments</h3>
                     <div className="space-y-3">
                       {userComments.slice(0, 5).map((comment) => (
-                        <div key={comment._id} className="p-3 bg-gray-50 rounded-lg">
+                        <div key={comment._id} className="p-3 bg-slate-100 rounded-lg">
                           <p className="text-sm text-gray-700 mb-2">{truncateContent(comment.content)}</p>
                           <div className="flex items-center justify-between text-xs text-gray-500">
                             <span>On: {comment.postId?.title || "Deleted Post"}</span>
@@ -384,7 +380,7 @@ const AdminUserDetails = () => {
                         </div>
                         <button
                           onClick={() => handleDeletePost(post._id)}
-                          className="ml-4 px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition duration-300"
+                          className=" flex ml-4 px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition duration-300"
                         >
                           Delete
                         </button>
@@ -497,7 +493,7 @@ const AdminUserDetails = () => {
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Followers ({followers.length})</h3>
                   <div className="space-y-3">
                     {followers.map((follower) => (
-                      <div key={follower._id} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                      <div key={follower._id} className="flex items-center space-x-3 p-3 bg-slate-100 rounded-lg">
                         <img
                           src={follower.avatar || "/placeholder.svg?height=40&width=40&query=user avatar"}
                           alt={follower.name}
@@ -523,7 +519,7 @@ const AdminUserDetails = () => {
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Following ({following.length})</h3>
                   <div className="space-y-3">
                     {following.map((followedUser) => (
-                      <div key={followedUser._id} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                      <div key={followedUser._id} className="flex items-center space-x-3 p-3 bg-slate-100 rounded-lg">
                         <img
                           src={followedUser.avatar || "/placeholder.svg?height=40&width=40&query=user avatar"}
                           alt={followedUser.name}

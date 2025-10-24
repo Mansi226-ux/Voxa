@@ -1,4 +1,4 @@
- const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema(
   {
@@ -48,10 +48,9 @@ const postSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
-)
+  }
+);
 
-// Index for search functionality
-postSchema.index({ title: "text", content: "text", tags: "text" })
+postSchema.index({ title: "text", content: "text", tags: "text" });
 
-module.exports = mongoose.model("Post", postSchema)
+module.exports = mongoose.model("Post", postSchema);

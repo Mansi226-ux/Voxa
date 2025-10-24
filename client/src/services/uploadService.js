@@ -112,15 +112,13 @@ class UploadService {
         const parts = url.split("/");
         const uploadIndex = parts.findIndex((part) => part === "upload");
         if (uploadIndex !== -1 && uploadIndex + 2 < parts.length) {
-          // Get everything after version number
           const pathParts = parts.slice(uploadIndex + 2);
           const fullPath = pathParts.join("/");
-          // Remove file extension
+
           return fullPath.replace(/\.[^/.]+$/, "");
         }
       }
 
-      // Fallback for other URLs
       const parts = url.split("/");
       const filename = parts[parts.length - 1];
       const publicId = filename.split(".")[0];

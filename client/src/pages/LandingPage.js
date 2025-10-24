@@ -92,9 +92,9 @@ const LandingPage = () => {
 
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-indigo-200 rounded-full opacity-50 animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-purple-200 rounded-full opacity-50 animate-pulse delay-1000"></div>
-          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-pink-200 rounded-full opacity-50 animate-pulse delay-2000"></div>
+          <div className="hidden lg:block absolute top-20 left-10 w-20 h-20 bg-indigo-200 rounded-full opacity-50 animate-pulse"></div>
+          <div className="hidden lg:block absolute top-40 right-20 w-16 h-16 bg-purple-200 rounded-full opacity-50 animate-pulse delay-1000"></div>
+          <div className="hidden lg:block absolute bottom-20 left-1/4 w-12 h-12 bg-pink-200 rounded-full opacity-50 animate-pulse delay-2000"></div>
         </div>
       </section>
 
@@ -111,7 +111,7 @@ const LandingPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
             {features.map((feature, index) => (
               <AnimatedCard
                 key={index}

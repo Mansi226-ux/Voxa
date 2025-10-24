@@ -20,7 +20,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -28,7 +28,6 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// // Static files for uploads
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.get("/", (req, res) => {

@@ -8,6 +8,7 @@ import { useAnimations } from "../hooks/useAnimations.js";
 import Swal from "sweetalert2";
 
 
+
 const RegisterPage = () => {
   const { slideLeft } = useAnimations();
   const [formData, setFormData] = useState({
@@ -57,6 +58,10 @@ const RegisterPage = () => {
       className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8  "
       style={slideLeft}
     >
+       <div className="hidden lg:block absolute fixed top-40 left-10 w-20 h-20 bg-indigo-200 rounded-full opacity-50 animate-pulse"></div>
+      <div className="hidden lg:block absolute fixed top-65 right-25 w-16 h-16 bg-purple-200 rounded-full opacity-50 animate-pulse delay-1000"></div>
+      <div className="hidden lg:block  absolute fixed bottom-65 left-60 w-12 h-12 bg-pink-200 rounded-full opacity-50 animate-pulse delay-2000"></div>
+
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900">

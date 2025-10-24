@@ -76,14 +76,18 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="min-h-screen   py-8">
+    <div className="min-h-screen bg-slate-50   py-8">
+      <div className="hidden lg:block absolute fixed top-40 left-10 w-20 h-20 bg-indigo-200 rounded-full opacity-50 animate-pulse"></div>
+      <div className="hidden lg:block absolute fixed top-65 right-25 w-16 h-16 bg-purple-200 rounded-full opacity-50 animate-pulse delay-1000"></div>
+      <div className="hidden lg:block absolute fixed bottom-65 left-60 w-12 h-12 bg-pink-200 rounded-full opacity-50 animate-pulse delay-2000"></div>
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className=" rounded-lg shadow-md p-6">
+        <div className=" rounded-lg  bg-slate-200 shadow-lg p-6">
           <div className="mb-6">
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-slate-900">
               Create New Post
             </h1>
-            <p className="text-gray-600 mt-2">
+            <p className="text-lg text-slate-700 mt-1">
               Share your thoughts with the community
             </p>
           </div>
@@ -93,7 +97,7 @@ const CreatePost = () => {
             <div>
               <label
                 htmlFor="title"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-slate-700 mb-2"
               >
                 Post Title *
               </label>
@@ -104,14 +108,14 @@ const CreatePost = () => {
                 required
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-3 py-2 border border-slate-400 rounded-md focus:outline-none bg-slate-100 focus:ring-2 focus:ring-slate-950 focus:border-slate-300"
                 placeholder="Enter your post title..."
               />
             </div>
 
             {/* Featured Image */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Featured Image
               </label>
               <ImageUpload
@@ -130,7 +134,7 @@ const CreatePost = () => {
               <div>
                 <label
                   htmlFor="category"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-slate-700 mb-2"
                 >
                   Category
                 </label>
@@ -139,7 +143,7 @@ const CreatePost = () => {
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border border-slate-400 rounded-md focus:outline-none bg-slate-100 focus:ring-2 focus:ring-slate-950 focus:border-slate-300"
                 >
                   {categories.map((category) => (
                     <option key={category} value={category}>
@@ -152,7 +156,7 @@ const CreatePost = () => {
               <div>
                 <label
                   htmlFor="tags"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-slate-700 mb-2"
                 >
                   Tags (comma separated)
                 </label>
@@ -162,14 +166,14 @@ const CreatePost = () => {
                   name="tags"
                   value={formData.tags}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border border-slate-400 rounded-md focus:outline-none bg-slate-100 focus:ring-2 focus:ring-slate-950 focus:border-slate-300"
                   placeholder="react, javascript, web development"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Content *
               </label>
               <RichTextEditor
@@ -183,7 +187,7 @@ const CreatePost = () => {
               <button
                 type="button"
                 onClick={() => navigate("/dashboard")}
-                className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition duration-300"
+                className="px-6 py-2 border border-slate-400 rounded-md text-slate-700 bg-slate-100 transition duration-300"
               >
                 Cancel
               </button>

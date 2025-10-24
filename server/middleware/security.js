@@ -15,7 +15,7 @@ const createRateLimit = (windowMs, max, message) => {
  
 const generalLimiter = createRateLimit(
   15 * 60 * 1000,  
-  100, // limit each IP to 100 requests per windowMs
+  100,  
   "Too many requests from this IP, please try again later."
 );
 
@@ -28,7 +28,7 @@ const authLimiter = createRateLimit(
 
  
 const uploadLimiter = createRateLimit(
-  60 * 60 * 1000, // 1 hour
+  60 * 60 * 1000, 
   20,  
   "Too many upload attempts, please try again later."
 );

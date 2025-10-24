@@ -208,9 +208,9 @@ const AdminDashboard = () => {
                   </div>
                 </div>
 
-                {/* Recent Activity */}
+                
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {/* Recent Posts */}
+                  
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">
                       Recent Posts
@@ -219,7 +219,7 @@ const AdminDashboard = () => {
                       {stats.recentActivity?.recentPosts?.map((post) => (
                         <div
                           key={post._id}
-                          className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg"
+                          className="flex items-center space-x-4 p-4 bg-slate-100 rounded-lg"
                         >
                           <img
                             src={
@@ -254,7 +254,7 @@ const AdminDashboard = () => {
                       {stats.recentActivity?.recentUsers?.map((user) => (
                         <div
                           key={user._id}
-                          className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg"
+                          className="flex items-center space-x-4 p-4 bg-slate-100 rounded-lg"
                         >
                           <img
                             src={
@@ -302,7 +302,7 @@ const AdminDashboard = () => {
                 ) : (
                   <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-200">
-                      <thead className="bg-gray-50">
+                      <thead className="bg-slate-100">
                         <tr>
                           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             User
@@ -392,7 +392,7 @@ const AdminDashboard = () => {
                             className={`px-3 py-2 rounded-md text-sm font-medium transition duration-300 ${
                               currentPage === page
                                 ? "bg-indigo-600 text-white"
-                                : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-300"
+                                : "bg-white text-gray-700 hover:bg-slate-100 border border-gray-300"
                             }`}
                           >
                             {page}
@@ -424,7 +424,7 @@ const AdminDashboard = () => {
                 ) : (
                   <div className="space-y-4">
                     {posts.map((post) => (
-                      <div key={post._id} className="bg-gray-50 rounded-lg p-6">
+                      <div key={post._id} className="bg-slate-100 rounded-lg p-6">
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center mb-2">
@@ -437,15 +437,15 @@ const AdminDashboard = () => {
                                 className="w-8 h-8 rounded-full mr-3"
                               />
                               <div>
-                                <h4 className="font-semibold text-gray-900">
+                                <h4 className="flex font-semibold text-gray-900">
                                   {post.title}
                                 </h4>
-                                <p className="text-sm text-gray-600">
+                                <p className=" flex text-sm text-gray-600">
                                   by {post.authorId?.name}
                                 </p>
                               </div>
                             </div>
-                            <p className="text-gray-700 mb-3">
+                            <p className=" flex text-gray-700 mb-3">
                               {post.content
                                 .replace(/<[^>]*>/g, "")
                                 .substring(0, 200)}
@@ -460,7 +460,7 @@ const AdminDashboard = () => {
                           <div className="ml-4">
                             <button
                               onClick={() => handleDeletePost(post._id)}
-                              className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300"
+                              className=" flex px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition duration-300"
                             >
                               Delete
                             </button>
@@ -483,7 +483,7 @@ const AdminDashboard = () => {
                             className={`px-3 py-2 rounded-md text-sm font-medium transition duration-300 ${
                               currentPage === page
                                 ? "bg-indigo-600 text-white"
-                                : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-300"
+                                : "bg-white text-gray-700 hover:bg-slate-100 border border-gray-300"
                             }`}
                           >
                             {page}
